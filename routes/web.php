@@ -43,3 +43,11 @@ Route::get('/playlist/add/{song_id}','PlayListController@addSong');
 
 //get playlist from database
 Route::get('/playlist','PlayListController@getPlaylist');
+
+
+//Song upload
+Route::get('upload','uploadController@upload');
+Route::post('/store','uploadController@store');
+Route::get('/show','uploadController@show');
+
+

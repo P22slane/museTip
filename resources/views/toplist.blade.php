@@ -7,6 +7,7 @@
         </script>
     @else
     <div class="container contPanel mainText">
+        <!--div>
         <h3>Hit Checker!</h3>
         {!! Form::open(['url' => '#']) !!}
         <div class="form-group">
@@ -18,6 +19,21 @@
 
         </div>
         {!! Form::close() !!}
+                </div-->
+
+        <div class="contPanel">
+            <div class="mainText">
+                <h3>Hit Checker!</h3>
+                <form action="/store" enctype="multipart/form-data" method="post">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="file" name="song">
+                    <br>
+                    <input type="submit" class = "btn btn-primary" value="Check">
+                </form>
+            </div>
+        </div>
+
+
     </div>
     <div class="container">
         <div class="contPanel">
