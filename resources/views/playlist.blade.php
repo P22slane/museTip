@@ -24,7 +24,10 @@
                         @if(count($playlist)>0)
                             @foreach($playlist as $song)
                                 <tr>
-                                    <td>{{$song->musics_id}}</td>
+
+                                    <td>{{$song->song_name}}</td>
+                                    <td>{{$song->artist}}</td>
+                                    <td>{{$song->length}}</td>
 
                                     <!--td>
                                         <button type="button" class="btn btn-primary btn-sm">
@@ -41,6 +44,7 @@
                     </table>
                 </div>
             </div>
+
         </div>
     @endif
 @endsection

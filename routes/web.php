@@ -27,7 +27,12 @@ Route::get('/toplist2', function () {
     return view('toplist');
 });
 
-//view dong inser page
+//view song data page
+Route::get('/songData', function () {
+    return view('songData');
+});
+
+//view song inser page
 Route::get('/insert', function () {
     return view('songInsert');
 });
