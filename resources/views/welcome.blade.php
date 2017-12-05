@@ -65,6 +65,7 @@
         </style>
     </head>
     <body>
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -76,8 +77,21 @@
                     @endif
                 </div>
             @endif
-            <h1>Museprophet <br></h1><br>
-            <p>Your daily dose of awesome music</p>
+
+
+                <div class="contPanel">
+                    <div class="mainText">
+                        <h3>Hit Checker!</h3>
+                        <form action="/store" enctype="multipart/form-data" method="post">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="file" name="song">
+                            <br>
+                            <input type="submit" class = "btn btn-primary" value="Check">
+                        </form>
+                    </div>
+                </div>
+            <!--h1>Museprophet <br></h1><br>
+            <p>Your daily dose of awesome music</p-->
 
         </div>
     </body>

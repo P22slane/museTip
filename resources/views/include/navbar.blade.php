@@ -22,9 +22,11 @@
             <ul class="nav navbar-nav">
                 @if (Auth::guest())
                 @else
-                    <li><a href="/toplist">Top Lists</a></li>
+                    <!--li><a href="/toplist">Top Lists</a></li-->
+                    <li><a href="/mySongs">My Songs</a></li>
+                    <li><a href="/addSong">Add Song</a></li>
 
-                    <li><a href="/playlist">Playlist</a></li>
+                        <!--li><a href="/playlist">Playlist</a></li-->
                 @endif
             </ul>
 

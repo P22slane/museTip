@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('songCheck');
 });
 Route::get('/down', 'HomeController@index');
 
@@ -21,16 +21,21 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-//old list
-Route::get('/toplist2', function () {
-    return view('toplist');
-});
-
 //view song data page
 Route::get('/songData', function () {
     return view('songData');
 });
+
+//inserted song add page
+//Route::get('/addSong', '');
+Route::get('/addSong', function () {
+    return view('addSong');
+});
+
+
+//insert My Song to database
+Route::post('mysong/submit', 'MySongController@submit');
+
 
 //view song inser page
 Route::get('/insert', function () {
@@ -39,15 +44,23 @@ Route::get('/insert', function () {
 //insert song to database
 Route::post('/music/submit', 'MusicController@submit');
 
+//mysongs list
+Route::get('/mySongs','MySongController@getMySongs');
 
 //get songs from database
 Route::get('/toplist','MusicController@getMusic');
+
+//examplePage call
+Route::get('/examplePage','MusicController@getMusicFromFile');
 
 //insert picked song into playlist tabel
 Route::get('/playlist/add/{song_id}','PlayListController@addSong');
 
 //get playlist from database
-Route::get('/playlist','PlayListController@getPlaylist');
+Route::get('/playlist2','PlayListController@getPlaylist');
+
+//get MySongs from database
+Route::get('/playlist','MySongController@getMySongs');
 
 
 //Song upload
@@ -56,3 +69,6 @@ Route::post('/store','uploadController@store');
 Route::get('/show','uploadController@show');
 
 
+Route::get('/phpData', function () {
+    return view('phpdata');
+});

@@ -26,22 +26,20 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @if(count($playlist)>0)
-                            @foreach($playlist as $song)
+                        @if(count($mySongs)>0)
+                            @foreach($mySongs as $song)
                                 <tr>
 
-                                    <td>{{$song->song_name}}</td>
-                                    <td>{{$song->artist}}</td>
-                                    <td>{{$song->length}}</td>
+                                    <td>{{$song->file_name}}</td>
+                                    <td>{{$song->duration}}</td>
+                                    <td>{{$song->mfcc}}</td>
+                                    <td>{{$song->tempo}}</td>
+                                    <td>{{$song->beats}}</td>
+                                    <td>{{$song->loudness}}</td>
+                                    <td>{{$song->energy}}</td>
+                                    <td>{{$song->class}}</td>
 
-                                    <!--td>
-                                        <button type="button" class="btn btn-primary btn-sm">
-                                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
-                                        <button type="button" class="btn btn-primary btn-sm">
-                                            <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></button>
-                                    </td>
-                                    <td><a href="{{url('/playlist/add/'.$song->id)}}"><button class="btn btn-primary btn-sm" type="submit">Add List</button></a></td-->
-                                </tr>
+
                             @endforeach
                         @endif
 
