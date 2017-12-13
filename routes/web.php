@@ -47,6 +47,9 @@ Route::post('/music/submit', 'MusicController@submit');
 //mysongs list
 Route::get('/mySongs','MySongController@getMySongs');
 
+//Insert my song
+Route::post('/addMySongs','MySongController@addMySongs');
+
 //get songs from database
 Route::get('/toplist','MusicController@getMusic');
 

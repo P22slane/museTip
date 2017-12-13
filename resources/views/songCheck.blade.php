@@ -5,6 +5,9 @@
         <div class="contPanel">
             <div class="mainText contCentre">
                 <h3>Hit Checker!</h3>
+                @if ($errors->any())
+                    <span class="ct-red">{{ implode('', $errors->all(' :message')) }}</span>
+                @endif
                 <form action="/store" enctype="multipart/form-data" method="post">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="file" name="song">
@@ -18,7 +21,7 @@
             <div class="mainText contCentre">
                 <h3 style="text-align: center;">About Us</h3>
 
-                <lorem></lorem>
+
                 <a href="/examplePage" style="margin: 0 auto; " ><button class = "btn btn-primary" value="">Example</button></a>
 
             </div>

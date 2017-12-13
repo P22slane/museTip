@@ -8,11 +8,7 @@
 
                     <h3 class="" style="text-align: center;"><b>File name: {{$fileName}}</b></h3>
                     <h2 class="" style="text-align: center;">{{$songData["score"]}}%</h2>
-                    <!--div class="set-size charts-container">
-                        <div class="pie-wrapper pie-wrapper--solid progress-88">
-                            <span class="label">88<span class="smaller">%</span></span>
-                        </div>
-                    </div-->
+
                 <h3 style="text-align: center; margin-bottom: 0px;"><b>Details</b></h3>
                 <table class="table table" >
                     <thead>
@@ -26,53 +22,54 @@
 
                         <tr>
                             <td><b>Duration</b></td>
-                            <td>{{$songData["duration"]}}</td>
-                            <!--td>
-                                <div class="progress">
-
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%; ">
-
-                                        <span class="sr-only">50% Complete</span>
-
-                                    </div>
-
-                                </div>
-                            </td-->
+                            <td>{{number_format($songData["duration"],2)}}</td>
                         </tr>
                         <tr>
                             <td><b>Mfcc</b></td>
-                            <td>{{$songData["mfcc"]}}</td>
+                            <td>{{number_format($songData["mfcc"],2)}}</td>
 
-                            <!--td></td-->
                         </tr>
                         <tr>
                             <td><b>Tempo</b></td>
-                            <td>{{$songData["tempo"]}}</td>
+                            <td>{{number_format($songData["tempo"],2)}}</td>
 
-                            <!--td></td-->
                         </tr>
                         <tr>
                             <td><b>Beats</b></td>
-                            <td>{{$songData["beats"]}}</td>
+                            <td>{{number_format($songData["beats"],2)}}</td>
 
-                            <!--td></td-->
                         </tr>
                         <tr>
                             <td><b>Loudness</b></td>
-                            <td>{{$songData["loudness"]}}</td>
+                            <td>{{number_format($songData["loudness"],2)}}</td>
 
-                            <!--td></td-->
                         </tr>
                         <tr>
                             <td><b>Energy</b></td>
-                            <td>{{$songData["energy"]}}</td>
-                            <!--td></td-->
+                            <td>{{number_format($songData["energy"],2)}}</td>
                         </tr>
 
 
                     </tbody>
                 </table>
-                    <a href="/addSong"><button class = "btn btn-primary">Add to My Songs</button></a>
+                    {!! Form::open(['url' => 'addMySongs']) !!}
+                    <div class="form-group">
+                        {{Form::hidden('file_name', $fileName)}}
+                        {{Form::hidden('score', number_format($songData["score" ],2))}}
+                        {{Form::hidden('duration', number_format($songData["duration" ],2))}}
+                        {{Form::hidden('mfcc', number_format($songData["mfcc" ],2))}}
+                        {{Form::hidden('tempo', number_format($songData["tempo" ],2))}}
+                        {{Form::hidden('beats', number_format($songData["beats" ],2))}}
+                        {{Form::hidden('loudness', number_format($songData["loudness" ],2))}}
+                        {{Form::hidden('energy', number_format($songData["energy" ],2))}}
+
+                    </div>
+                    <div>
+                        {{Form::submit('Add to my songs', ['class' => "btn btn-primary"])}}
+
+                    </div>
+                    {!! Form::close() !!}
+                    <!--a href="/addMySongs"><button class = "btn btn-primary">Add to My Songs</button></a-->
                 @endif
             </div>
         </div>
